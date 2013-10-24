@@ -1,0 +1,238 @@
+.km-view-title
+{
+    width:100%;
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 70%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(70%,#6d0019)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 70%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 70%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 70%); /* IE10+ */
+    background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 70%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+
+.km-android #home .km-navbar .km-view-title
+{
+   visibility: visible;
+}
+
+/* Home/Log In View*/
+.km-phone #login {
+    display:block;
+    margin-left:14px;
+    width:87%;
+    padding:0.5em;
+    text-align:center;
+    color:white;
+    border-radius:0.5em;
+    font-size:1.2em;
+}
+
+.km-horizontal #login {
+    display:block;
+    margin-left:14px;
+    width:91%;
+    padding:0.5em;
+    text-align:center;
+    color:white;
+    border-radius:0.5em;
+    font-size:1.2em;
+}
+
+a#login {
+    background: #cc0431; /* Old browsers */
+    background: -moz-linear-gradient(top,  #cc0431 0%, #8a0221 42%, #5e0217 75%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc0431), color-stop(42%,#8a0221), color-stop(75%,#5e0217)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* IE10+ */
+    background: linear-gradient(to bottom,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0431', endColorstr='#5e0217',GradientType=0 ); /* IE6-9 */
+}
+
+a#login.tapped {
+    background: #cc0431; /* Old browsers */
+    background: -moz-linear-gradient(bottom,  #cc0431 0%, #8a0221 42%, #5e0217 75%); /* FF3.6+ */
+    background: -webkit-gradient(linear, right bottom, right top, color-stop(0%,#cc0431), color-stop(42%,#8a0221), color-stop(75%,#5e0217)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(bottom,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(bottom,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(bottom,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* IE10+ */
+    background: linear-gradient(to top,  #cc0431 0%,#8a0221 42%,#5e0217 75%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0431', endColorstr='#5e0217',GradientType=0 ); /* IE6-9 */
+}
+
+
+.km-android div[data-role='navbar'].km-navbar{
+    padding:0;
+}
+
+#home.km-view .km-content {
+    background-image: url(../styles/images/Log_In_Background.png);
+    background-origin: padding-box;
+    background-position:center;
+    background-size: cover;
+}
+
+.km-view .km-content {
+    background-image: url(../styles/images/background.png);
+    background-origin: padding-box;
+    background-position:center;
+    background-size: cover;    
+}
+
+.km-phone #home h1 {
+    font-size:1.7em;
+}
+
+.km-horizontal #home h1{
+    font-size:2.7em;
+    margin-bottom:0;
+}
+
+#home label input {
+    width:100%;
+    height: 2em;
+}
+
+.logo {
+    background-image: url(../styles/images/Diapa_Logo.png);
+    display:block;
+}
+
+.km-phone .logo {
+    width: 66%;
+    height: 110px;
+    background-size:cover;
+    background-origin: padding-box;
+    background-position:center;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom:1em;
+}
+
+.km-horizontal .logo {
+    width: 40%;
+}
+
+.km-android #home li input::-webkit-input-placeholder
+{
+    color:white;    
+}
+
+.km-android #home li input{
+    border-bottom: 2px solid rgba(255, 252, 25, 0.6);
+}
+
+/* 
+    Triad Color Composition 
+        Dark Red: B21212
+        Yellow: FFFC19
+        Red: FF0000
+        Light Blue: 1485CC
+        Dark Blue: 0971B2
+*/
+
+.km-phone .view-content h1{
+    color: white;    
+    text-align:center;
+}
+
+label {
+    color: black;
+    font-size: 1.4em;
+    text-align: right;
+}
+
+/* Main Menu View CSS */
+span[data-role='view-title'] {
+    font-size:0.8em;
+}
+
+/* Lista De Reportes */
+#lista-reportes div.center{
+    display:block;
+    position:relative;
+    top:135px;
+}
+
+#ventas ul, 
+#finanzas ul,
+#inventario ul {
+    padding: 0.5em;
+    list-style-type: none;
+    display: inline-block;
+    margin:0;
+}
+
+.km-phone #ventas ul ul,
+.km-phone #finanzas ul ul,
+.km-phone #inventario ul ul{
+    padding:1em;
+    background: #eaeaea;
+    width: 67%;
+    border-radius:0.7em;
+    -webkit-box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.8);
+    box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.km-horizontal #ventas ul ul,
+.km-horizontal #finanzas ul ul,
+.km-horizontal #inventario ul ul{
+    margin-bottom:1.5em;
+}
+
+.km-phone #ventas ul > li.tapped ul,
+.km-phone #finanzas ul > li.tapped ul,
+.km-phone #inventario ul > li.tapped ul{
+    -webkit-box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.km-vertical #ventas ul ul, 
+.km-vertical #finanzas ul ul,
+.km-vertical #inventario ul ul{
+    margin-bottom:0.5em;
+}
+
+.reporte-titulo {
+    color: #7f5f52;
+    font-size:1.3em;
+}
+
+p.reporte-description {
+    margin: 0.2em 0;
+    text-align:justify;
+    padding:0.8em 1em;
+    background: #999;
+    color: white;
+    border-radius:0.5em;
+    font-weight:normal;
+}
+
+.detail-icon {
+    height: 120px;
+    width: 20%;
+    display:inline-block;
+    position:relative;
+    right:-5px;
+    background-image: url(../styles/images/Icono-Lista-de-Reportes.png);
+    background-size: cover;
+    background-position: 100%;
+    background-origin:content-box;
+}
+
+li.tapped .detail-icon {
+    background-image: url(../styles/images/Icono-Lista-de-Reportes-tapped.png);
+}
+
+li:not(.tapped) .detail-icon {
+    background-image: url(../styles/images/Icono-Lista-de-Reportes.png);
+}
+
+.km-vertical .detail-icon {
+    top:35px;
+}
+
+.km-horizontal .detail-icon {
+    top:30px;
+}

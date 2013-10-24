@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="kendo/styles/jquery.jqplot.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+        <link href="styles/home.css" rel="stylesheet" />
+        
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/jquery.jqplot.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="kendo/js/plugins/jqplot.barRenderer.min.js"></script>
+        <script src="kendo/js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script src="kendo/js/plugins/jqplot.pointLabels.min.js"></script>
+
+        <script src="scripts/main_menu.js"></script>
+        <script src="scripts/login.js"></script>
+        <script src="scripts/app.js"></script>
+
+    </head>
+    <body>
+        <!--Home is the login view-->
+        <div id="home" 
+             data-role="view"
+             data-title="Reportería Para Proveedores"
+             data-model="app.loginService.viewModel"
+             data-layout="layout"
+             data-transition="zoom">
+            
+            <header>
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </header>
+            
+            <div class="view-content">
+                <h1 data-bind = "invisible: isLoggedIn">Ingrese sus credenciales</h1> 
+                <span class="logo"></span>
+                <ul data-bind = "invisible: isLoggedIn" data-style="inset" data-role="listview">
+                    <li>
+                        <label>
+                            &nbsp;
+                            <input type="text" id="username" placeholder="Usuario" data-bind="value: username" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            &nbsp;
+                            <input type="password" id="password" placeholder="Contraseña" data-bind="value: password" />
+                        </label>
+                    </li>
+                </ul>
+                
+                <a id="login" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button">Login</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('a').on('touchstart', function(e){
+                $(this).addClass('tapped');
+            });
+            
+            $('a').on('touchend', function(e){
+                $(this).removeClass('tapped');
+            });
+
+        </script>
+    </body>
+</html>

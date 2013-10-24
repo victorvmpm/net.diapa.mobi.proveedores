@@ -1,0 +1,228 @@
+<div id="lista-reportes"
+     data-role = "view"
+     data-title = "Diapa | Lista de Reportes"
+     data-show = "To_Sales_Tab">
+     <header data-role="header">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
+		</div>
+	</header>
+    <div class="view-content">
+        <div class="center">
+            <span class="logo"></span>
+        </div>
+    </div>
+</div>
+
+<div id="ventas"
+     data-role = "view"
+     data-title = "Diapa | Lista de Reportes"
+     data-show = "show_main_menu"
+     data-model = "app.Main_Menu.viewModel"
+     data-init="loadEnded">
+    <header data-role="header">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
+		</div>
+	</header>
+    <div class="view-content">
+        <ul data-bind = "source: menuVentas" data-template = "lista-de-reportes-Template"></ul>
+    </div>
+    <footer data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#ventas" data-icon = "contacts">Ventas</a>
+            <a href="#finanzas" data-icon = "add">Finanzas</a>
+            <a href="#inventario" data-icon = "cart">Inventario</a>
+            <a href="#comunicados" data-icon = "bookmarks">Comunicados</a>
+        </div>
+    </footer>
+</div>
+
+<div id="finanzas"
+     data-role = "view"
+     data-title = "Diapa | Lista de Reportes"
+     data-show = "show_main_menu"
+     data-model = "app.Main_Menu.viewModel"
+     data-init="loadEnded">>
+    <header data-role="header">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
+		</div>
+	</header>
+    <div class="view-content">
+        <ul data-bind = "source: menuFinanzas" data-template = "lista-de-reportes-Template"></ul>
+    </div>
+    <footer data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#ventas" data-icon = "contacts">Ventas</a>
+            <a href="#finanzas" data-icon = "add">Finanzas</a>
+            <a href="#inventario" data-icon = "cart">Inventario</a>
+            <a href="#comunicados" data-icon = "bookmarks">Comunicados</a>
+        </div>
+    </footer>
+</div>
+
+<div id="inventario"
+     data-role = "view"
+     data-title = "Diapa | Lista de Reportes"
+     data-show = "show_main_menu"
+     data-model = "app.Main_Menu.viewModel"
+     data-init="loadEnded">>
+    <header data-role="header">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
+		</div>
+	</header>
+    <div class="view-content">
+        <ul data-bind = "source: menuInventario" data-template = "lista-de-reportes-Template"></ul>
+    </div>
+    <footer data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#ventas" data-icon = "contacts">Ventas</a>
+            <a href="#finanzas" data-icon = "add">Finanzas</a>
+            <a href="#inventario" data-icon = "cart">Inventario</a>
+            <a href="#comunicados" data-icon = "bookmarks">Comunicados</a>
+        </div>
+    </footer>
+</div>
+
+<div id="comunicados"
+     data-role = "view"
+     data-title = "Diapa | Lista de Reportes"
+     data-model = "app.Main_Menu.viewModel"
+     data-init = "display_chart">
+    <header data-role="header">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
+		</div>
+	</header>
+    <div class="view-content">
+        <div id="chart-example"></div>
+    </div>
+    <footer data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#ventas" data-icon = "contacts">Ventas</a>
+            <a href="#finanzas" data-icon = "add">Finanzas</a>
+            <a href="#inventario" data-icon = "cart">Inventario</a>
+            <a href="#comunicados" data-icon = "bookmarks">Comunicados</a>
+        </div>
+    </footer>
+</div>
+
+<script type="script/x-kendo-template" id="lista-de-reportes-Template">
+    <!--<a href="#: direccion_vista_asociada #">-->
+        <li data-role = "touch"
+            data-tap = "tap_element">
+            <ul>
+                <li><span class="reporte-titulo">#: titulo #</span></li>
+                <li><p class="reporte-description">#: descripcion #</p></li>
+            </ul>
+            <span class="detail-icon"></span>
+        </li>
+    <!--</a>-->
+</script>
+
+<script type="text/javascript">
+    
+    function loadEnded(){
+        $('ul[data-template="lista-de-reportes-Template"]').on('touchstart', function(e){
+            _get_li_parent_node(e).addClass("tapped");
+        });
+        
+        $('ul[data-template="lista-de-reportes-Template"]').on('touchend', function(e){
+            _get_li_parent_node(e).removeClass("tapped");
+        });
+    }
+    
+    function _get_li_parent_node(e){
+        var nodeType = $(e.target).context.localName;
+        if(nodeType == "p" || nodeType == "span"){
+            if($(e.target).hasClass("detail-icon")){
+                return $(e.target).parent();
+            }else{
+                return $(e.target).parent().parent().parent();    
+            }
+        }else if(nodeType == "li"){
+            return $(e.target).parent().parent();
+        }else{
+            return $(e.target).parent();
+        }
+    }
+    
+    var _once = function Change_To_Main_Tab(){
+        app.application.navigate("#ventas");
+        clearInterval();
+    };
+    
+    function To_Sales_Tab(){
+        setTimeout(_once, 500);
+        _once = null;
+    }
+    
+    function show_main_menu( ) {
+        app.Main_Menu.viewModel.obtain_menus();
+        redimension_detailIcon();
+        $(window).bind( "orientationchange", function( event ) {
+            setInterval(function(){
+                redimension_detailIcon();    
+            },200);
+        });
+    }
+    
+    function redimension_detailIcon ( ) {
+        var landscape = $(".detail-icon").eq(0).parentsUntil("html").last().hasClass("km-horizontal");
+        $(".detail-icon").each(function(index, element){
+            if(!landscape){
+                $(element).height(
+                    $(element)
+                        .prev()
+                        .outerHeight() + 12
+                );    
+            }else{
+                $(element).height(
+                    $(element)
+                        .prev()
+                        .outerHeight() + 1
+                );
+            }
+        });
+        
+    }
+    
+    function tap_element( event_object ) {
+        $("#main_menu div.view-content > ul > li");
+    }
+    
+    function display_chart()
+    {
+        var s1 = [200, 600, 700, 1000];
+        var s2 = [460, -210, 690, 820];
+        var s3 = [-260, -440, 320, 200]; 
+        var ticks = ['May', 'June', 'July', 'August'];
+        var plot1 = $.jqplot('chart-example', [s1, s2, s3], {
+                seriesDefaults:{
+                renderer:$.jqplot.BarRenderer,
+                rendererOptions: {fillToZero: true}
+            },
+            series:[
+                {label:'Hotel'},
+                {label:'Event Regristration'},
+                {label:'Airfare'}
+            ],
+            legend: {
+                show: true,
+                placement: 'insideGrid'
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    ticks: ticks
+                },
+                yaxis: {
+                    pad: 1.05,
+                    tickOptions: {formatString: '$%d'}
+                }
+            }
+        });
+    }
+</script>
